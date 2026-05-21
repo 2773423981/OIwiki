@@ -1,0 +1,11 @@
+---
+// 只放 JS 逻辑，比如当前路径判断
+const currentPath = Astro.url.pathname;
+import '../styles/Navigation.css'
+---
+<nav class="navbar">
+	<ul>
+    	<a href="/">首页</a>
+    	<a href="/blog/">博客</a>
+	</ul>
+</nav>

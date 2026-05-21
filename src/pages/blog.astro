@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro'
+
+const postFiles = import.meta.glob('./posts/*.md', { eager: true });
+const posts = Object.values(postFiles).map((mod: any) => ({
+  url: mod.url,
+  frontmatter: mod.frontmatter
+}));
+---
+<html lang="zh">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>博客</title>
+  </head>
+  <body>
+    <Navigation />
+    <h1>一个oiwiki</h1>
+    <p>小小的wiki</p>
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+          <span>{new Date(post.frontmatter.pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}</span>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

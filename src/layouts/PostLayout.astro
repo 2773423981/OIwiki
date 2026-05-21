@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import '../styles/wiki.css';
+import Navigation from '../components/Navigation.astro';
+const { frontmatter } = Astro.props;
+---
+
+<html lang="zh">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <Navigation />
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">{frontmatter.title}</h1>
+        <time class="article-date">{new Date(frontmatter.pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}</time>
+      </header>
+      <div class="article-content">
+        <slot />
+      </div>
+    </article>
+  </body>
+</html>

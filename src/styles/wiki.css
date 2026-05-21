@@ -1,0 +1,174 @@
+/* ====== OI Wiki 文章内容样式 ====== */
+
+/* --- 文章容器 --- */
+article {
+  padding-top: 4rem;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+/* --- 文章头部 --- */
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.article-title {
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  color: white;
+}
+
+.article-date {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* --- 文章内容区 --- */
+.article-content {
+  line-height: 1.9;
+  color: #ddd;
+}
+
+/* --- 内容标题 --- */
+.article-content h1 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 105, 180, 0.05));
+  border-left: 4px solid #FF69B4;
+  border-radius: 0 8px 8px 0;
+  color: #FFC0CB;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  margin: 1.8rem 0 0.8rem;
+  color: #FFC0CB;
+  border-bottom: 1px solid rgba(255, 105, 180, 0.15);
+  padding-bottom: 0.3rem;
+}
+
+.article-content h3 {
+  font-size: 1.2rem;
+  margin: 1.2rem 0 0.6rem;
+  color: #FFB6C1;
+}
+
+/* --- 段落 --- */
+.article-content p {
+  margin: 0.8rem 0;
+}
+
+.article-content strong {
+  color: white;
+}
+
+.article-content em {
+  color: #FFC0CB;
+}
+
+/* --- 链接 --- */
+.article-content a {
+  color: pink;
+  text-decoration: none;
+  border-bottom: 1px dashed pink;
+}
+
+.article-content a:hover {
+  color: #FF69B4;
+  border-bottom-style: solid;
+}
+
+/* --- 行内代码 --- */
+.article-content code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: rgba(255, 105, 180, 0.12);
+  color: #FFB6C1;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* --- 代码块 --- */
+.article-content pre {
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid rgba(255, 105, 180, 0.12);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.article-content pre code {
+  background: none;
+  color: #ddd;
+  padding: 0;
+}
+
+/* --- 列表 --- */
+.article-content ul, .article-content ol {
+  padding-left: 1.5rem;
+  margin: 0.8rem 0;
+}
+
+.article-content li {
+  margin: 0.4rem 0;
+}
+
+.article-content ul {
+  list-style-type: disc;
+}
+
+/* --- 引用块 --- */
+.article-content blockquote {
+  border-left: 4px solid #FF69B4;
+  background: rgba(255, 105, 180, 0.05);
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  color: #bbb;
+}
+
+/* --- 表格 --- */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.article-content th {
+  background: rgba(255, 105, 180, 0.15);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  color: white;
+}
+
+.article-content td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.article-content tr:hover td {
+  background: rgba(255, 105, 180, 0.04);
+}
+
+/* --- 图片 --- */
+.article-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* --- 分隔线 --- */
+.article-content hr {
+  border: none;
+  border-top: 1px solid rgba(255, 105, 180, 0.15);
+  margin: 2rem 0;
+}
+
+/* --- 数学公式预留 --- */
+.katex {
+  color: white;
+}
