@@ -11,9 +11,9 @@ body {
     color: white;
     margin: 0 auto;
     width: 100%;
-    max-width: 80ch;
-    padding: 4rem 1rem 1rem;
+    padding: 0;
     line-height: 1.5;
+    max-width: none;
 }
 
 code, pre {
@@ -68,4 +68,115 @@ ul {
     margin: 0;
     color: #ddd;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ====== Layout ====== */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ====== Sidebar ====== */
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: rgba(25, 25, 30, 0.6);
+    border-right: 1px solid rgba(255, 105, 180, 0.1);
+    padding: 1rem 0;
+}
+
+.sidebar-logo {
+    padding: 0.5rem 1.2rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 105, 180, 0.15);
+    margin-bottom: 0.5rem;
+}
+.sidebar-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-group {
+    padding: 0.3rem 1.2rem;
+}
+.sidebar-group summary {
+    color: #ccc;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 0.4rem 0;
+    cursor: pointer;
+    outline: none;
+}
+.sidebar-group summary:hover {
+    color: #FF69B4;
+}
+.sidebar-group ul {
+    padding-left: 0.8rem;
+}
+.sidebar-group li {
+    margin: 0.15rem 0;
+}
+.sidebar-group a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.82rem;
+    display: block;
+    padding: 0.2rem 0;
+}
+.sidebar-group a:hover {
+    color: pink;
+}
+.sidebar-group a.active {
+    color: #FF69B4;
+    font-weight: bold;
+}
+
+/* 文章主区域 */
+article {
+    flex: 1;
+    min-width: 0;
+    padding: 2rem 3rem 3rem;
+    max-width: 80ch;
+}
+
+/* ====== TOC 右侧目录 ====== */
+.toc {
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding: 1rem;
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+.toc-title {
+    font-weight: bold;
+    color: #FF69B4;
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,105,180,0.15);
+    margin-bottom: 0.5rem;
+}
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.toc a {
+    color: #999;
+    text-decoration: none;
+}
+.toc a:hover {
+    color: pink;
+}
+.toc-depth-3 {
+    padding-left: 0.8rem;
 }

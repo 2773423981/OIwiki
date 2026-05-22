@@ -1,0 +1,25 @@
+---
+import { sidebar } from '../data/nav';
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="/">OI Wiki</a>
+  </div>
+  {sidebar.map(group => (
+    <details open class="sidebar-group">
+      <summary>{group.title}</summary>
+      <ul>
+        {group.items.map(item => (
+          <li>
+            <a href={`/posts/${item.slug}/`}
+               class:list={[{ active: currentPath.includes(item.slug) }]}>
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ))}
+</aside>

@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
 import '../styles/wiki.css';
-import Navigation from '../components/Navigation.astro';
-const { frontmatter } = Astro.props;
+import Sidebar from '../components/Sidebar.astro';
+
+const { frontmatter, headings } = Astro.props;
+const toc = headings.filter((h: any) => h.depth === 2 || h.depth === 3);
 ---
 
 <html lang="zh">
@@ -10,17 +12,32 @@ const { frontmatter } = Astro.props;
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width" />
     <title>{frontmatter.title}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   </head>
   <body>
-    <Navigation />
-    <article>
-      <header class="article-header">
-        <h1 class="article-title">{frontmatter.title}</h1>
-        <time class="article-date">{new Date(frontmatter.pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}</time>
-      </header>
-      <div class="article-content">
-        <slot />
-      </div>
-    </article>
+    <div class="wrapper">
+      <Sidebar />
+      <article>
+        <header class="article-header">
+          <h1 class="article-title">{frontmatter.title}</h1>
+          <time class="article-date">{new Date(frontmatter.pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}</time>
+        </header>
+        <div class="article-content">
+          <slot />
+        </div>
+      </article>
+      {toc.length > 0 && (
+        <nav class="toc">
+          <div class="toc-title">本页目录</div>
+          <ul>
+            {toc.map((h: any) => (
+              <li class={`toc-item toc-depth-${h.depth}`}>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </div>
   </body>
 </html>

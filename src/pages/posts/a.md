@@ -9,3 +9,15 @@ author: '椛'
 # 第一篇测试文章
 
 小小测试markdown文档
+
+$$A=\begin{pmatrix}418&414\\-412&-408\end{pmatrix},\quad x^{(0)}=(1,2)^T$$
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::cout << "BAKA!\n";
+    return 0;
+}
+```
