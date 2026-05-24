@@ -172,3 +172,41 @@ article {
 .katex {
   color: white;
 }
+
+/* ====== 提示框 ====== */
+.admonition {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+  font-size: 0.92rem;
+}
+.admonition p { margin: 0.3rem 0; }
+.admonition-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.admonition-content { flex: 1; }
+
+.admonition-note    { background: rgba(100,180,255,0.08); border-color: #64B5F6; }
+.admonition-warning { background: rgba(255,200,50,0.08); border-color: #FFC107; }
+.admonition-tip     { background: rgba(100,220,150,0.08); border-color: #4CAF50; }
+.admonition-danger  { background: rgba(255,100,100,0.08); border-color: #FF5252; }
+
+/* ====== 折叠 ====== */
+.spoiler {
+  border: 1px solid rgba(255,105,180,0.2);
+  border-radius: 8px;
+  margin: 0.8rem 0;
+  overflow: hidden;
+}
+.spoiler summary {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: rgba(255,105,180,0.06);
+  color: #FF69B4;
+  font-weight: bold;
+  user-select: none;
+}
+.spoiler summary:hover { background: rgba(255,105,180,0.12); }
+.spoiler[open] summary { border-bottom: 1px solid rgba(255,105,180,0.1); }
+.spoiler > :not(summary) { padding: 0.5rem 1rem; margin: 0; }

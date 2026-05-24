@@ -1,21 +1,33 @@
 ---
-import { sidebar } from '../data/nav';
+const postFiles = import.meta.glob('/src/pages/posts/*/index.md', { eager: true });
 const currentPath = Astro.url.pathname;
+
+const posts = Object.entries(postFiles).map(([path, mod]: [string, any]) => {
+  const slug = path.split('/').at(-2)!;
+  return { slug, ...mod.frontmatter };
+});
+
+const groups: Record<string, any[]> = {};
+posts.forEach((p: any) => {
+  const cat = p.category || '未分类';
+  if (!groups[cat]) groups[cat] = [];
+  groups[cat].push(p);
+});
 ---
 
 <aside class="sidebar">
   <div class="sidebar-logo">
     <a href="/">OI Wiki</a>
   </div>
-  {sidebar.map(group => (
+  {Object.entries(groups).map(([cat, items]) => (
     <details open class="sidebar-group">
-      <summary>{group.title}</summary>
+      <summary>{cat}</summary>
       <ul>
-        {group.items.map(item => (
+        {items.map((p: any) => (
           <li>
-            <a href={`/posts/${item.slug}/`}
-               class:list={[{ active: currentPath.includes(item.slug) }]}>
-              {item.title}
+            <a href={`/posts/${p.slug}/`}
+               class:list={[{ active: currentPath.includes(p.slug) }]}>
+              {p.title}
             </a>
           </li>
         ))}
